@@ -5,9 +5,11 @@ StackUberflow::Application.routes.draw do
       post :upvote
       post :downvote
     end
-    resources :answers do
-      post :upvote
-      post :downvote
+    resources :answers, :except => [:index, :show] do
+      member do
+        post :upvote
+        post :downvote
+      end
     end
   end
 end

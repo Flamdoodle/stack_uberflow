@@ -18,6 +18,7 @@ class QuestionController < ApplicationController
   end
 
   def destroy
+    #admin only?
   end
 
   def upvote
