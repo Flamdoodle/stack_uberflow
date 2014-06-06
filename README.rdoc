@@ -1,4 +1,4 @@
-== Stack-Uberflow
+Stack-Uberflow
 
 A Stack Overflow Clone
 
