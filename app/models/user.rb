@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :questions, foreign_key: "asker_id"
   has_many :answers, foreign_key: "answerer_id"
-  has_many :votes
+  has_many :votes, as: :voteable
 
 end
