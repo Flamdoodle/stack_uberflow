@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
 
   validates :username, uniqueness: true
 
-  has_many :questions
-  has_many :answers
+  has_many :questions, foreign_key: "asker_id"
+  has_many :answers, foreign_key: "answerer_id"
   has_many :votes
 
 end
