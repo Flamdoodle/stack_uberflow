@@ -1,4 +1,4 @@
-class AnswerController < ApplicationController
+class AnswersController < ApplicationController
   def new
   end
 
