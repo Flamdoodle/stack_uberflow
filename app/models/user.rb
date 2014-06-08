@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password_digest, :question, :answer, :comment
+  attr_accessible :username, :password, :question, :answer, :comment
   has_secure_password
 
   validates :username, uniqueness: true
