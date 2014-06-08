@@ -15,16 +15,12 @@ class AnswersController < ApplicationController
     redirect_to root_path
   end
 
-  def show
-   puts "showwwwwwwwwwww"
-  end
 
+  # def edit
+  # end
 
-  def edit
-  end
-
-  def update
-  end
+  # def update
+  # end
 
   def destroy
   end
