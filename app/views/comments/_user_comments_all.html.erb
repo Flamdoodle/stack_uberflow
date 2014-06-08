@@ -1,2 +1,22 @@
 <h1><%= @user.username %>'s Comments</h1>
-  <%=
+
+<h2>Comments on Questions</h2>
+
+<% @question_comments.each do |q_comment| %>
+  <h3>Question: <%= Question.find(q_comment.commentable_id).title %><br></h3>
+  <h4>Comment on Question: <%= q_comment.body %><br></h4>
+  --------------------------------------------<br>
+<% end %>
+<br><br>
+
+<h2> Comments on Answers</h2>
+
+<% @answer_comments.each do |a_comment| %>
+  <h3>Original Question: <%= Answer.find(a_comment.commentable_id).question.title %><br></h3>
+  <h4>Answer to Question: <%= Answer.find(a_comment.commentable_id).body %><br></h4>
+  <h5>Comment on this Answer : <%= a_comment.body %><br><h5>
+  -------------------------------------------<br>
+<% end %>
+<br><br>
+
+
