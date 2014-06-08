@@ -1,10 +1,12 @@
 StackUberflow::Application.routes.draw do
   root :to => 'questions#index'
+
   resources :questions do
     member do
       post :upvote
       post :downvote
     end
+
     resources :answers, :except => [:index, :show] do
       member do
         post :upvote
@@ -12,4 +14,6 @@ StackUberflow::Application.routes.draw do
       end
     end
   end
+
+  resources :users, :only => [:create, :new]
 end
