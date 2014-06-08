@@ -15,7 +15,10 @@ StackUberflow::Application.routes.draw do
     end
   end
 
-  resources :users, :only => [:create, :new]
+  resources :users, :only => [:create, :new] do
+    resources :comments, :only => [:index]
+  end
+
 
   post '/users/login', to: 'users#login'
   get '/users/end', to: 'users#end'
