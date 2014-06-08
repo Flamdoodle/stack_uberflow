@@ -1,8 +1,19 @@
 <h1>Question:<%= @question.title %></h1>
 <h3>Answers: <%= @usernames.count %></h3>
 
-<% @usernames.each do |username| %>
-      <%= username %>
-  <br>
+<% @usernames.each_with_index do |username, index| %>
+      <p>Name: <%= @usernames[index] %></p>
+      <p>Answer: <%= @answers[index] %></p>
+      <br>
+<% end %>
 
+
+
+<%#= form_tag (@answer, url: question_answers_path) do |f| %>
+<%#= form_for @answer, url: question_answers do |f| %>
+
+<%= form_for @answer, url: "/questions/#{@question.id}/answers" do |f| %>
+  <%= f.label :body %><br>
+  <%= f.text_area :body %><br>
+  <%= f.submit %><br>
 <% end %>

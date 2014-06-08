@@ -11,7 +11,5 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  # def self.logged_in?
-  #   !session[:user_id].nil?
-  # end
+
 end

@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  attr_accessible :title, :body, :answer, :user, :asker, :comment
+  attr_accessible :title, :body, :answer, :user, :asker, :asker_id, :comment
 
   belongs_to :asker, class_name: "User"
 
