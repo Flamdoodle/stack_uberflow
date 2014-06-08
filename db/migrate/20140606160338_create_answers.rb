@@ -12,3 +12,5 @@ class CreateAnswers < ActiveRecord::Migration
     drop_table :answers
   end
 end
+
+

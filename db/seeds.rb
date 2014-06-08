@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+payam = User.create(username: "Payam", password: "hello")
+nirav = User.create(username: "Nirav", password: "hello")
+
+@rails = payam.questions.create(title: "What is rails?", body: "is it godly?")
+nirav.answers.create(question_id: @rails.id, body: "yes, payam..it is godly")
