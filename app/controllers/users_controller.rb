@@ -23,6 +23,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
+      flash[:login_error] = "That username is already taken or you didn't have a username/password. Please try again."
       redirect_to new_user_path
     end
   end
