@@ -3,6 +3,7 @@ class Question < ActiveRecord::Base
   belongs_to :asker, class_name: "User"
   has_many :votes, as: :voteable
   has_many :answers
+  has_many :comments
 
   validates :title, length: { minimum: 2 }, presence: true
   validates :body, presence: true
