@@ -20,8 +20,12 @@ class QuestionsController < ApplicationController
   def show
     @answer = Answer.new
     @question = Question.find(params[:id])
+
     @usernames = []
     @answers = []
+
+    @question_comments = Comment.where(commentable_type: "Question", commentable_id: params[:id])
+
     @question.answers.each do |answer|
       @usernames << User.find(answer.answerer_id).username
       @answers << answer.body

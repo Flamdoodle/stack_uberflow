@@ -1,0 +1,9 @@
+<% if @answer_comments %>
+  <% @answer_comments.each do |a_comment| %>
+    Comment on this Answer : <%= a_comment.body %><br>
+    -------------------------------------------<br>
+  <% end %>
+  <br><br>
+<% else %>
+  There are no comments on the answer
+<% end %>

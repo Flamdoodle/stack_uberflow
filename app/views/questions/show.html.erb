@@ -1,13 +1,24 @@
-<h1>Question:<%= @question.title %></h1>
-<h3>Answers: <%= @usernames.count %></h3>
-
-<%= link_to 'Delete this Question!', question_path(@question), method: :delete %>
+<h1>Question: <%= @question.title %></h1>
+<h2><%= @question.body %></h2>
+<br>
+<br>
+<h3>Comments on this Question</h3>
+<h4><%= render "/comments/question_comments" %><h4>
+<br>
+<br>
+*****************************************
+<br>
+<h2>Answers: <%= @usernames.count %></h2>
 
 <% @usernames.each_with_index do |username, index| %>
       <p>Name: <%= @usernames[index] %></p>
       <p>Answer: <%= @answers[index] %></p>
       <br>
 <% end %>
+<h4><%= render "/comments/answer_comments" %></h4>
+
+
+
 
 
 
@@ -19,3 +30,7 @@
   <%= f.text_area :body %><br>
   <%= f.submit %><br>
 <% end %>
+<br>
+<br>
+
+<%= link_to 'Delete this Question!', question_path(@question), method: :delete %>
