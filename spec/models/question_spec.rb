@@ -7,6 +7,7 @@ describe Question do
 			title: 'What is rails?'
 			body: 'Just curious',
 			)
+		expect(question).to be_valid
 	end
 
 	it "should create a question even without a title" do
@@ -14,5 +15,14 @@ describe Question do
 				title: nil,
 				body: 'Just curious',
 				)
+			expect(question).to be_valid
+		end
+
+	it "every title must be longer than 2 characters" do
+		question = Question.new(
+				title: "ab",
+				body: 'Just curious',
+				)
+		expect(question).to be_invalid
 		end
 end

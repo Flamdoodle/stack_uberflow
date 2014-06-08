@@ -3,4 +3,6 @@ class Question < ActiveRecord::Base
   belongs_to :asker, class_name: "User"
   has_many :votes, as: :voteable
   has_many :answers
+
+  validates :title, length: { minimum: 2 }
 end
