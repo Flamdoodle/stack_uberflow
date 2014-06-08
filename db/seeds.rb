@@ -10,6 +10,7 @@ require 'faker'
 payam = User.create(username: "Payam", password: "hello")
 nirav = User.create(username: "Nirav", password: "hello")
 insung = User.create(username: "insung", password: "hello")
+lawrence = User.create(username: "lrmanfre@me.com", password: "123")
 
 @rails = payam.questions.create(title: "What is rails?", body: "is it godly?")
 nirav.answers.create(question_id: @rails.id, body: "yes, payam..it is godly")

@@ -1,12 +1,13 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :body, :user, :commenter, :answer, :question
-  belongs_to :commenter, class_name: "User"
-  belongs_to :answer
+  attr_accessible :body, :user, :question, :answer, :commentable_type, :commentable_id
+
+  belongs_to :commentable, polymorphic: true
+  belongs_to :user
   belongs_to :question
-  has_many :votes, as: :voteable
+  belongs_to :answer
 
   validates :body, presence: true
-  validates :commenter, presence: true
+  validates :user, presence: true
 
   # Add validation to make sure EITHER answer OR question is present
 end
