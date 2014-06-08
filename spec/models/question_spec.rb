@@ -1,10 +1,11 @@
-require 'spec_helper'
-require_relative '../spec_helper.rb'
+# require 'spec_helper'
+require '../spec_helper'
 
 describe Question do 
+	
 	it "should create a title and body in the question" do
 		question = Question.new(
-			title: 'What is rails?'
+			title: 'What is rails?',
 			body: 'Just curious',
 			)
 		expect(question).to be_valid
@@ -15,14 +16,16 @@ describe Question do
 				title: nil,
 				body: 'Just curious',
 				)
-			expect(question).to be_valid
-		end
+			expect(question).to be_invalid
+	end
 
 	it "every title must be longer than 2 characters" do
 		question = Question.new(
-				title: "ab",
+				title: "a",
 				body: 'Just curious',
 				)
 		expect(question).to be_invalid
-		end
+	end
+
+
 end

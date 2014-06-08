@@ -4,5 +4,6 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :voteable
   has_many :answers
 
-  validates :title, length: { minimum: 2 }
+  validates :title, length: { minimum: 2 }, presence: true 
+  validates :body, presence: true 
 end
