@@ -1,8 +1,10 @@
 class AnswersController < ApplicationController
   def new
+    @answer = Answer.new
   end
 
   def create
+    puts "hello"
   end
 
   def edit

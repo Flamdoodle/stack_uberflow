@@ -1,8 +1,11 @@
 <h1>Question:<%= @question.title %></h1>
 <h3>Answers: <%= @usernames.count %></h3>
 
-<% @usernames.each do |username| %>
-      <%= username %>
-  <br>
-
+<% @usernames.each_with_index do |username, index| %>
+      <p>Name: <%= @usernames[index] %></p>
+      <p>Answer: <%= @answers[index] %></p>
+      <br>
 <% end %>
+
+
+<%= link_to "write an answer", new_question_answer_path %>

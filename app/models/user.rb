@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   has_many :answers, foreign_key: "answerer_id"
   has_many :votes, as: :voteable
 
+
+  # def self.logged_in?
+  #   !session[:user_id].nil?
+  # end
 end
