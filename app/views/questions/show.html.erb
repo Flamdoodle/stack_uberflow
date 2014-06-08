@@ -1,1 +1,8 @@
-show.html.erb
+<h1>Question:<%= @question.title %></h1>
+<h3>Answers: <%= @usernames.count %></h3>
+
+<% @usernames.each do |username| %>
+      <%= username %>
+  <br>
+
+<% end %>

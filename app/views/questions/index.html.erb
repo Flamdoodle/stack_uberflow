@@ -1,10 +1,6 @@
+<h1>Welcome to Stack UberFlow</h1>
+
+<h2>All Questions:</h2><br>
 <% @questions.each do |question| %>
-<% @user = User.find(question.asker_id) %>
-User: <b><%=@user.username %></b><br>
-<h4>Q: <%=question.title %></h4>
-	<% question.answers.each do |answer| %>
-	<% @responder = User.find(answer.answerer_id) %>
-	<h4>A: <%= answer.body %></h4>
-	<h4>Answered by: <%= @responder.username %>
-	<% end %>
+  <%= link_to question.title, question %>
 <% end %>
