@@ -27,6 +27,8 @@ class AnswersController < ApplicationController
       user: user ,
       vote_value: 1
     )
+    @question = Question.find(params[:question_id])
+      redirect_to "/questions/#{@question.id}"
   end
 
   def downvote
@@ -36,6 +38,8 @@ class AnswersController < ApplicationController
       user: user ,
       vote_value: -1
     )
+    @question = Question.find(params[:question_id])
+      redirect_to "/questions/#{@question.id}"
   end
 
   def makebest

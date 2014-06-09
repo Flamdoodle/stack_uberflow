@@ -44,6 +44,8 @@ class QuestionsController < ApplicationController
       user: user,
       vote_value: 1
     )
+    @question = Question.find(params[:id])
+      redirect_to "/questions/#{@question.id}"
   end
 
   def downvote
@@ -53,5 +55,7 @@ class QuestionsController < ApplicationController
       user: User.find(session[:user_id]),
       vote_value: -1
     )
+    @question = Question.find(params[:id])
+      redirect_to "/questions/#{@question.id}"
   end
 end
