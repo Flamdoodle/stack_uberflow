@@ -2,7 +2,7 @@
 
 A Stack Overflow Clone
 
-##FinalTeam Members
+##Final Team Members
 
 - Stephen Roth
 - Lawrence Manfredi
