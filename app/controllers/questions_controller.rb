@@ -39,19 +39,27 @@ class QuestionsController < ApplicationController
 
   def upvote
     question = Question.find(params[:id])
-    user = User.find(session[:user_id])
-    question.votes.create(
-      user: user,
-      vote_value: 1
-    )
+    if session[:user_id]
+      user = User.find(session[:user_id])
+      question.votes.create(
+        user: user,
+        vote_value: 1
+      )
+    else
+      redirect_to root_path
+    end
   end
 
   def downvote
     question = Question.find(params[:id])
-    user = User.find(session[:user_id])
-    question.votes.create(
-      user: User.find(session[:user_id]),
-      vote_value: -1
-    )
+    if session[:user_id]
+      user = User.find(session[:user_id])
+      question.votes.create(
+        user: user,
+        vote_value: -1
+      )
+    else
+      redirect_to root_path
+    end
   end
 end
