@@ -38,8 +38,20 @@ class QuestionsController < ApplicationController
   end
 
   def upvote
+    question = Question.find(params[:id])
+    user = User.find(session[:user_id])
+    question.votes.create(
+      user: user,
+      vote_value: 1
+    )
   end
 
   def downvote
+    question = Question.find(params[:id])
+    user = User.find(session[:user_id])
+    question.votes.create(
+      user: User.find(session[:user_id]),
+      vote_value: -1
+    )
   end
 end
