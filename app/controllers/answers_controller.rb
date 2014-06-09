@@ -25,4 +25,22 @@ class AnswersController < ApplicationController
 
   def downvote
   end
+
+  def makebest
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+    @question.answers.each do |answer|
+      if answer.best == true
+        answer.update_attributes(best: false) unless answer.id == @answer.id
+        answer.save
+      end
+    end
+
+    @answer.update_attributes(best: true)
+    @answer.save
+
+    session[:message] = "\"#{@answer.body}\" authored by \"#{@answer.answerer.username}\" is now the best answer!"
+
+    redirect_to "/questions/#{@question.id}"
+  end
 end

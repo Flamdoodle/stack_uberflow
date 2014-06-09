@@ -3,9 +3,19 @@
 <p><%= render "/comments/question_comments" %><p>
 ************************************************************************************
 <br>
+
+<% if session[:message] %>
+  <h3><%= session[:message] %></h3>
+  <% session[:message] = nil %>
+<% end %>
+<br>
+
 <h2>Answers: <%= @answers.count %></h2>
 
 <% @answers.each do |answer| %>
+  <% if answer.best == true %>
+    <strong>***THE BEST ANSWER***</strong>
+  <% end %>
   <% @answer = answer %>
   <%= render "/comments/answer_comments", locals: { question: @question, answer: @answer } %>
 <% end %>

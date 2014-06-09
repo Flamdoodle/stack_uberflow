@@ -54,19 +54,4 @@ class QuestionsController < ApplicationController
 
   def downvote
   end
-
-  def makebest
-    puts "PARAMS: #{params.inspect}"
-    @question = Question.find(params[:id])
-    @question.answers.each do |answer|
-      if answer.best == true
-        answer.update(best: false)
-        puts "THEY ALREADY HAD A BEST"
-      else
-        puts "NO BEST!!!"
-      end
-    end
-
-    @answer.update(best: true)
-  end
 end
