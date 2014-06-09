@@ -11,14 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140606160338) do
+ActiveRecord::Schema.define(:version => 20140609014322) do
 
   create_table "answers", :force => true do |t|
     t.integer  "answerer_id"
     t.integer  "question_id"
     t.text     "body"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "best",        :default => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.string   "body"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "questions", :force => true do |t|
@@ -39,8 +49,8 @@ ActiveRecord::Schema.define(:version => 20140606160338) do
   create_table "votes", :force => true do |t|
     t.integer  "voteable_id"
     t.string   "voteable_type"
-    t.integer  "user_id"
-    t.integer  "value"
+    t.integer  "user_id",       :null => false
+    t.integer  "vote_value",    :null => false
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

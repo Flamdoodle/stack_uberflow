@@ -1,1 +1,50 @@
-show.html.erb
+<h1>Question: <%= @question.title %></h1>
+<h2>Body: <%= @question.body %></h2>
+<p><%= render "/comments/question_comments" %><p>
+  <% if logged_in? %>
+    <%= render "/comments/new_comment", locals: {url: "/comments", question: @question} %>
+  <% end %>
+************************************************************************************
+<br>
+
+<% if session[:message] %>
+  <h3><%= session[:message] %></h3>
+  <% session[:message] = nil %>
+<% end %>
+<br>
+
+<h2>Answers: <%= @answers.count %></h2>
+
+<% @answers.each do |answer| %>
+  <% if answer.best == true %>
+    <strong>***THE BEST ANSWER***</strong>
+  <% end %>
+  <% @answer = answer %>
+  <%= render "/comments/answer_comments", locals: { question: @question, answer: @answer } %>
+  <% if logged_in? %>
+    <%= render "/comments/new_comment", locals: {url: "/comments", question: @question, answer: @answer} %>
+  <% end %>
+_____________________________________________________________
+<% end %>
+
+
+
+
+
+
+
+
+<%#= form_tag (@answer, url: question_answers_path) do |f| %>
+<%#= form_for @answer, url: question_answers do |f| %>
+<% if logged_in? %>
+  <h3>Your answer</h3>
+  <%= form_for @new_answer, url: "/questions/#{@question.id}/answers" do |f| %>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %><br>
+    <%= f.submit %><br>
+  <% end %>
+  <br>
+  <br>
+
+  <%= link_to 'Delete this Question!', question_path(@question), method: :delete %>
+<% end %>

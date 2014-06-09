@@ -1,0 +1,7 @@
+<h2>Make an Answer:</h2>
+
+<%= form_for @answer, :url => url_for(:controller => 'answers', :action => 'post') do |f| %>
+  <%= f.label :body %><br>
+  <%= f.text_area :body %><br>
+  <%= f.submit %><br>
+<% end %>

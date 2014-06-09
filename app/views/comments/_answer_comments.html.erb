@@ -1,0 +1,16 @@
+<p><strong><%= @answer.answerer.username %></strong> answered: <%= @answer.body %><br>
+<% if logged_in? && (current_user.id == @question.asker.id) %>
+  <%= link_to "Make this the Best Answer!", makebest_question_answer_path(@question, @answer) %>
+<% end %>
+<br></p>
+
+<h4>Comments: </h4>
+<p><% @answer.comments.each do |comment| %>
+  <em><%= comment.user.username %></em>: <%= comment.body %>
+
+  <br>
+<% end %>
+<br>
+
+
+</p>

@@ -1,24 +1,40 @@
 class QuestionsController < ApplicationController
   def index
+    @questions = Question.all
+    @question = Question.new
   end
 
   def new
-  end
-
-  def show
+    @question = Question.new
   end
 
   def create
+
+    @user_id = session[:user_id]
+    @question = Question.create(asker_id: @user_id, title: params[:question][:title], body: params[:question][:body])
+    redirect_to root_path
   end
 
-  def edit
+  def show
+    @new_answer = Answer.new
+    @question = Question.find(params[:id])
+    @new_comment = Comment.new
+
+    @answers = @question.answers
+
+    @question_comments = Comment.where(commentable_type: "Question", commentable_id: params[:id])
   end
 
-  def update
-  end
+  # def edit
+  # end
+
+  # def update
+  # end
 
   def destroy
-    #admin only?
+    question = Question.find params[:id]
+    question.destroy
+    redirect_to root_path
   end
 
   def upvote
