@@ -22,20 +22,28 @@ class AnswersController < ApplicationController
 
   def upvote
     answer = Answer.find(params[:id]) 
-    user = User.find(session[:user_id])
-    answer.votes.create(
-      user: user ,
-      vote_value: 1
-    )
+    if session[:user_id]
+      user = User.find(session[:user_id])
+      answer.votes.create(
+        user: user ,
+        vote_value: 1
+      )
+    else
+      redirect_to root_path
+    end
   end
 
   def downvote
     answer = Answer.find(params[:id]) 
-    user = User.find(session[:user_id])
-    answer.votes.create(
-      user: user ,
-      vote_value: -1
-    )
+    if session[:user_id]
+      user = User.find(session[:user_id])
+      answer.votes.create(
+        user: user ,
+        vote_value: -1
+      )
+    else
+      redirect_to root_path
+    end
   end
 
   def makebest
