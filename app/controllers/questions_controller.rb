@@ -12,9 +12,7 @@ class QuestionsController < ApplicationController
 
     @user_id = session[:user_id]
     @question = Question.create(asker_id: @user_id, title: params[:question][:title], body: params[:question][:body])
-    puts "#{@question.inspect}"
     redirect_to root_path
-    # flash[:success] = "You successfully created a quesiton."
   end
 
   def show
@@ -24,18 +22,7 @@ class QuestionsController < ApplicationController
 
     @answers = @question.answers
 
-    # @usernames = []
-    # @answers = []
-    # @partials = []
-
     @question_comments = Comment.where(commentable_type: "Question", commentable_id: params[:id])
-
-    # @question.answers.each do |answer|
-    #   @usernames << User.find(answer.answerer_id).username
-    #   @answers << answer.body
-    #   @partials << #the partial syntax
-    # end
-
   end
 
   # def edit

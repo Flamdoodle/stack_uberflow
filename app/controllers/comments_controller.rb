@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def index
-    puts "PARAMS: #{params}"
+
     @user = User.find(params[:user_id])
     @question_comments = Comment.where(user_id: @user.id, commentable_type: "Question")
     @answer_comments = Comment.where(user_id: @user.id, commentable_type: "Answer")
@@ -8,9 +8,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    puts "IN COMMENT CREATE!!!!!!!!!!"
-    puts "params: #{params}"
-
     if params[:comment][:answer]
       @answer = Answer.find(params[:comment][:answer])
       @answer.comments.build(body: params[:comment][:body], user: User.find(session[:user_id]))
