@@ -45,6 +45,8 @@ class QuestionsController < ApplicationController
         user: user,
         vote_value: 1
       )
+      @question = Question.find(params[:id])
+      redirect_to "/questions/#{@question.id}"
     else
       redirect_to root_path
     end
@@ -58,8 +60,11 @@ class QuestionsController < ApplicationController
         user: user,
         vote_value: -1
       )
+      @question = Question.find(params[:id])
+      redirect_to "/questions/#{@question.id}"
     else
       redirect_to root_path
     end
   end
+  
 end

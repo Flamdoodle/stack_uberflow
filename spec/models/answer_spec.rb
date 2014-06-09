@@ -1,4 +1,4 @@
-require_relative '../spec_helper'
+require '../spec_helper'
 
 describe Answer do
   context "associations" do
