@@ -11,6 +11,7 @@ StackUberflow::Application.routes.draw do
       member do
         post :upvote
         post :downvote
+        get :makebest
       end
     end
   end
