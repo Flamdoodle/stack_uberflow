@@ -3,6 +3,7 @@
   <%= link_to "Make this the Best Answer!", makebest_question_answer_path(@question, @answer) %>
 <% end %>
 <br></p>
+<p><%= count_votes_of(@answer) %> votes</p>
 
 <h4>Comments: </h4>
 <p><% @answer.comments.each do |comment| %>
@@ -11,6 +12,4 @@
   <br>
 <% end %>
 <br>
-
-
 </p>

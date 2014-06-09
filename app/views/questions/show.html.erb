@@ -1,5 +1,6 @@
 <h1>Question: <%= @question.title %></h1>
-<h2>Body: <%= @question.body %></h2>
+<h2>Body: <%= @question.body %> <%= count_votes_of(@question) %> votes</h2>
+<p><%= count_votes_of(@question) %> votes</p>
 <p><%= render "/comments/question_comments" %><p>
   <% if logged_in? %>
     <%= render "/comments/new_comment", locals: {url: "/comments", question: @question} %>
