@@ -8,14 +8,24 @@
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
 <body>
-  <div id="nav">
-  <%= link_to "Index", root_path %>
-  <% if logged_in? %>
-    <%= link_to "Logout", '/users/end' %> (Logged in as <%= User.find(session[:user_id]).username %>)
-  <% else %>
-    <%= link_to "Login/Signup", '/users/new' %>
-  <% end %>
-</div>
+  <nav class="navbar navbar-default">
+  <ul class="nav navbar-nav">
+    <li>
+  <%= link_to "Index", root_path%></li>
+    
+    <% if logged_in? %>
+     <li>
+      <%= link_to "Logout", '/users/end' %> 
+    </li>
+      <li>(Logged in as <%= User.find(session[:user_id]).username %>)</li>
+    <% else %>
+    <li>
+      <%= link_to "Login/Signup", '/users/new' %>
+    </li>
+    <% end %>
+  </ul>
+</nav>
+
 
 
 <%= yield %>
