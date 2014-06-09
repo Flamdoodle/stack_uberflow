@@ -6,6 +6,7 @@ gem 'rails', '3.2.18'
 gem 'pg'
 gem 'bcrypt'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'faker'
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'
