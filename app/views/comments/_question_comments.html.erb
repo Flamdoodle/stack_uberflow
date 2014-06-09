@@ -1,0 +1,5 @@
+<% @question_comments.each do |q_comment| %>
+  <em><%= q_comment.user.username %></em>: <%= q_comment.body %><br>
+  --------------------------------------------<br>
+<% end %>
+

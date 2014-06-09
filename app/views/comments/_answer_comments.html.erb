@@ -1,0 +1,9 @@
+<p><strong><%= @answer.answerer.username %></strong> answered: <%= @answer.body %><br></p>
+<h4>Comments: </h4>
+<p><% @answer.comments.each do |comment| %>
+  <em><%= comment.user.username %></em>: <%= comment.body %>
+  <br>
+<% end %>
+<br>
+____________________________________
+</p>
