@@ -20,16 +20,9 @@ StackUberflow::Application.routes.draw do
     resources :comments, :only => [:index]
   end
 
+  resources :comments, :only => [:create]
+
 
   post '/users/login', to: 'users#login'
   get '/users/end', to: 'users#end'
-
-  # get "sessions#new"
-  # post "sessions#create"
-  # get "sessions#delete"
-
-  # resources :sessions, :only => [:new, :create]
-  # get "/sessions/new", to: "sessions#new"
-  # post "/sessions/create", to: "sessions#create"
-  # get "/sessions/end", to: "sessions#end"
 end
