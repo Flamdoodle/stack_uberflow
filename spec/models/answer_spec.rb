@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 require '../spec_helper'
-=======
-require_relative '../spec_helper'
->>>>>>> dfb246155614f10a14c2b8d7fb38baed9c6dbf77
 
 describe Answer do
   context "associations" do
