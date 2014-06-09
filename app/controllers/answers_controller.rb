@@ -21,9 +21,21 @@ class AnswersController < ApplicationController
   end
 
   def upvote
+    answer = Answer.find(params[:id]) 
+    user = User.find(session[:user_id])
+    answer.votes.create(
+      user: user ,
+      vote_value: 1
+    )
   end
 
   def downvote
+    answer = Answer.find(params[:id]) 
+    user = User.find(session[:user_id])
+    answer.votes.create(
+      user: user ,
+      vote_value: -1
+    )
   end
 
   def makebest
