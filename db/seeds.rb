@@ -36,4 +36,26 @@ lawrence = User.create(username: "lrmanfre@me.com", password: "123")
 @l_a = lawrence.answers.create(question_id: @rails_question.id, body: "Rails makes sweet programs.")
 @l_a.save
 
+kenny = User.create(username: "missingno15@gmail.com", password: "god")
 
+@js_question = kenny.questions.create(
+	title: "What is an Immediately Invoked Function Expression?", 
+	body: "I think I have a general idea of what it is, but I am not sure of how it is different from a regular JS function."
+)
+
+@js_question.votes.create(
+	user: payam,
+	voteable: @js_question,
+	vote_value: 1
+)
+
+@js_answer = lawrence.answers.create(
+	question_id: @js_question.id,
+  body: "Just as the name suggests, it is a function that is immediately executed when the program runs."
+)
+
+@js_answer.votes.create(
+	user: kenny,
+	voteable: @js_answer,
+	vote_value: 1
+)
