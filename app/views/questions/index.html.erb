@@ -4,7 +4,8 @@
 
 <h2>All Questions:</h2>
 <% @questions.each do |question| %>
-  <h2><%= link_to question.title, question %><h3>Created: <%= question.created_at %></h3></h2>
+  <h2><%= link_to question.title, question %> <%= count_votes_of(question) %> votes </h2>
+  <h3>Created: <%= question.created_at %></h3>
 <% end %>
 
 
