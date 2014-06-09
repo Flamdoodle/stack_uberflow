@@ -1,5 +1,5 @@
 <p><strong><%= @answer.answerer.username %></strong> answered: <%= @answer.body %><br>
-<% if current_user.id == @question.asker.id %>
+<% if logged_in? && (current_user.id == @question.asker.id) %>
   <%= link_to "Make this the Best Answer!", makebest_question_answer_path(@question, @answer) %>
 <% end %>
 <br></p>
