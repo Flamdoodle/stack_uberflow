@@ -37,3 +37,14 @@ lawrence = User.create(username: "lrmanfre@me.com", password: "123")
 @l_a.save
 
 
+kenny = User.create(username: "missingno15@gmail.com", password: "god")
+question = Question.first
+
+v = Vote.new(
+		user: kenny,
+		voteable: question,
+		vote_value: -1
+	)
+
+v.save
+
