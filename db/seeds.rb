@@ -18,15 +18,22 @@ lawrence = User.create(username: "lrmanfre@me.com", password: "123")
 
 
 @n_a = nirav.answers.create(question_id: @rails_question.id, body: "Rails is a piece of software.")
+
 @a1 = @n_a.comments.build(body: "Thanks, I wasn't sure if it was a piece of hardware or not...", user: payam)
 @a1.save
-@b1 = @n_a.comments.build(body: "Payam, it is definitely NOT a piece of hardware.", user: insung)
 
+@b1 = @n_a.comments.build(body: "Payam, it is definitely NOT a piece of hardware.", user: insung)
+@b1.save
+
+@d1 = @n_a.comments.build(body: "This is Payam's SECOND comment on this answer", user: payam)
+@d1.save
 
 
 @i_a = insung.answers.create(question_id: @rails_question.id, body: "Rails allows you to create web apps.")
 @c1 = @i_a.comments.build(body: "Yes, Insung, we can create web applications with Rails", user: lawrence)
+@c1.save
 
 @l_a = lawrence.answers.create(question_id: @rails_question.id, body: "Rails makes sweet programs.")
+@l_a.save
 
 

@@ -1,9 +1,9 @@
-<% if @answer_comments %>
-  <% @answer_comments.each do |a_comment| %>
-    Comment on this Answer : <%= a_comment.body %><br>
-    -------------------------------------------<br>
-  <% end %>
-  <br><br>
-<% else %>
-  There are no comments on the answer
+<p><strong><%= @answer.answerer.username %></strong> answered: <%= @answer.body %><br></p>
+<h4>Comments: </h4>
+<p><% @answer.comments.each do |comment| %>
+  <em><%= comment.user.username %></em>: <%= comment.body %>
+  <br>
 <% end %>
+<br>
+____________________________________
+</p>

@@ -18,18 +18,22 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @answer = Answer.new
+    @new_answer = Answer.new
     @question = Question.find(params[:id])
 
-    @usernames = []
-    @answers = []
+    @answers = @question.answers
+
+    # @usernames = []
+    # @answers = []
+    # @partials = []
 
     @question_comments = Comment.where(commentable_type: "Question", commentable_id: params[:id])
 
-    @question.answers.each do |answer|
-      @usernames << User.find(answer.answerer_id).username
-      @answers << answer.body
-    end
+    # @question.answers.each do |answer|
+    #   @usernames << User.find(answer.answerer_id).username
+    #   @answers << answer.body
+    #   @partials << #the partial syntax
+    # end
 
   end
 

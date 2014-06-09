@@ -1,21 +1,16 @@
 <h1>Question: <%= @question.title %></h1>
-<h2><%= @question.body %></h2>
+<h2>Body: <%= @question.body %></h2>
+<p><%= render "/comments/question_comments" %><p>
+************************************************************************************
 <br>
-<br>
-<h3>Comments on this Question</h3>
-<h4><%= render "/comments/question_comments" %><h4>
-<br>
-<br>
-*****************************************
-<br>
-<h2>Answers: <%= @usernames.count %></h2>
+<h2>Answers: <%= @answers.count %></h2>
 
-<% @usernames.each_with_index do |username, index| %>
-      <p>Name: <%= @usernames[index] %></p>
-      <p>Answer: <%= @answers[index] %></p>
-      <br>
+<% @answers.each do |answer| %>
+  <% @answer = answer %>
+  <%= render "/comments/answer_comments", locals: {answer: @answer } %>
 <% end %>
-<h4><%= render "/comments/answer_comments" %></h4>
+
+
 
 
 
@@ -25,7 +20,7 @@
 <%#= form_tag (@answer, url: question_answers_path) do |f| %>
 <%#= form_for @answer, url: question_answers do |f| %>
 <h3>Your answer</h3>
-<%= form_for @answer, url: "/questions/#{@question.id}/answers" do |f| %>
+<%= form_for @new_answer, url: "/questions/#{@question.id}/answers" do |f| %>
   <%= f.label :body %><br>
   <%= f.text_area :body %><br>
   <%= f.submit %><br>
