@@ -20,6 +20,7 @@ class QuestionsController < ApplicationController
   def show
     @new_answer = Answer.new
     @question = Question.find(params[:id])
+    @new_comment = Comment.new
 
     @answers = @question.answers
 
